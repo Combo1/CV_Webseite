@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mein CV</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type ="text/javascript">
+                $(document).ready(function() {
+                    $('.menubutton').click(function() {
+                        $('nav').slideToggle('slow');
+                    });
+                });
+            </script>
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" charset="UTF-8">
+        <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+        <link rel="manifest" href="images/favicon/site.webmanifest">
+        <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <section id="menubar">
+            <ul>
+                <li><a class="menubutton" href="#menu"><img src="images/menu.png"/></a></li>
+            </ul>
+        </section>
+        <header>
+            <img class="TUM" style="max-width:14%;max-height:14%" src="images/TUM_logo.png" alt="TUM">
+            <h1>Fabian Nhan</h1>
+        </header>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Erfahrung.html">Erfahrung</a></li>
+                <li><a href="#" class="active">Programmierkenntnisse</a>
+                    <ul>
+                        <li><a href="BlackJack.html">XML Blackjack</a></li>
+                        <li><a href="Fußgängersimulation.html">Fußgängersimulation</a></li>
+                        <li><a href="App_dev.html">App Entwicklung</a></li>
+                        <li><a href="Flugapplikation.html">Flugapplikation</a></li>
+                    </ul>
+                </li>
+                <li><a href="Lebenslauf.html">Lebenslauf</a></li>
+                <li><a href="Kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+
+
+        <section id="main">
+
+            <article>
+                <h2>Fußgängersimulationen als komplexe Systeme</h2>
+                <p>
+                    Der Koopman Operator ist eine Lösung zur Untersuchung der Dynamiken von Messwerten im Zustandsraum von dynamischen
+                    Systemen. Mit dem Koopman Ansatz können wir die darunterliegenden Dynamiken von Systemen, durch das Betrachten der
+                    Veränderung der Messungen, untersuchen.
+
+                    Der Koopman Operator ist ein unendlich-dimensionaler, linearer Operator der sämtliche nicht-lineare Dynamiken erfassen kann.
+                    Wir benutzen ihn zur Analyse der Entwicklung von Funktionen im Zustandsraum, indem wir sie in auf eine Basis
+                    von Eigenfunktionen des Koopman Operators übersetzen.
+
+                <h3>Vorteile:</h3>
+                <ul>
+                    <li>Datengetriebener Ansatz, wir können eine gute Approximation erstellen ohne Wissen über
+                        das darunterliegende System zu besitzen</li>
+                    <li>Wir können hochdimensionale Daten verarbeiten</li>
+                    <li>Wir arbeiten in einem linearen Raum, sodass wir leicht lineare Techniken wir Spektral Analyse verwenden können
+                        um die Dynamiken des Systems zu analysieren</li>
+                    <li>Der Koopman Operator ist gute geeignet um hoch-dimensionale dynamische Systeme zu visualisieren</li>
+                </ul>
+                <h3>Nachteile:</h3>
+                <ul>
+                    <li>Wir analysieren die Entwicklung von Funktionen, sodass er schwer zu interpretieren ist.</li>
+                    <li>Der Ansatz ist unendlich dimensional auch wenn der darunterliegende Zustandsraum finit ist.</li>
+                </ul>
+                </p>
+                <h3>Datenkompression in nicht-linearen dynamischen Systemen</h3>
+                <figure>
+                    <img src="images/koopman.png">
+                    <figcaption>Funktionsweise des Koopman Operators</figcaption>
+                </figure>
+
+
+                <figure>
+                    <img src="images/pedestrian_paths.png">
+                    <figcaption>Ursprungsdaten</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="images/polynomial_dictionary.png">
+                    <figcaption>Ergebnis nach Komprimierung mithilfe des EDMD Algorithmus (Basis: Polynom 3.Ordnung)</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="images/radial_basis_function_dictionary.png">
+                    <figcaption>Ergebnis nach Komprimierung mithilfe des EDMD Algorithmus (Radiale Basisfunktion)</figcaption>
+                </figure>
+
+
+            </article>
+        </section>
+
+        <footer>
+            <ul>
+                <li>&copy; Fabian Nhan</li>
+                <li><a href="AGB.html">AGB</a></li>
+                <li><a href="Datenschutz.html">Datenschutz</a></li>
+                <li><a href="Impressum.html">Impressum</a></li>
+            </ul>
+        </footer>
+    </body>
+</html>

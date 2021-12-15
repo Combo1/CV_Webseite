@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mein CV</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type ="text/javascript">
+            $(document).ready(function() {
+                $('.menubutton').click(function() {
+                    $('nav').slideToggle('slow');
+                });
+            });
+        </script>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<section id="menubar">
+    <ul>
+        <li><a class="menubutton" href="#menu"><img src="images/menu.png"/></a></li>
+    </ul>
+</section>
+<header>
+    <img class="TUM" style="max-width:14%;max-height:14%" src="images/TUM_logo.png" alt="TUM">
+    <h1>Fabian Nhan</h1>
+</header>
+<nav class="nav">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Erfahrung.html">Erfahrung</a></li>
+        <li><a href="#" class="active">Programmierkenntnisse</a>
+            <ul>
+                <li><a href="BlackJack.html">XML Blackjack</a></li>
+                <li><a href="Fußgängersimulation.html">Fußgängersimulation</a></li>
+                <li><a href="App_dev.html">App Entwicklung</a></li>
+                <li><a href="Dritte_Herrenmannschaft.html">Flugapplikation</a></li>
+            </ul>
+        </li>
+        <li><a href="Lebenslauf.html">Lebenslauf</a></li>
+        <li><a href="Kontakt.html">Kontakt</a></li>
+    </ul>
+</nav>
+
+
+<section id="main">
+    <article>
+        <h2>Design und User Interface</h2>
+        <h3>Tisch, Symbole und Parameterisierung</h3>
+        <p>
+            Für den Tisch wurde eine grüne Farbe mit hölzerner Umrandung gewählt, bei dem sich links des Dealers ein Schild mit dem Minimum- und Maximumgebot befindet. Um den Tisch dynamisch zu skalieren wurden viewboxes verwendet, welche bei der Veränderung der Browsergröße automatisch die Grafiken skaliert. Des Weiteren hat jeder Spieler ein Kästchen mit seinem Namen, Gebot und Restbetrag, bei dem sich die Farbe des Kästchens entsprechend der 3 Zustände ändert, die der Spieler haben kann. Wenn der Spieler aktiv ist, grau mit opacity: 0.7, wenn er passiv ist, grau mit opacity: 0.3 oder die Farbe ist gelb mit opacity: 0.7, wenn der Spieler an der Reihe ist. Die Karten werden anhand der Variablen in der global_variables.xsl an die richtige Stelle positioniert. Die initialen Positionen der ersten Karte jedes Spielers steht fest, aber die Folgekarten werden mithilfe von cardIndex und eines Offsets bestimmt. Folgend ist ein Beispiel, wie dieser Tisch dann aussehen kann
+        </p>
+        <img src="images/Tisch.png">
+        <p>
+            Die Symbole für die Karten wurden auch von unserem Team selbst entworfen. Dafür haben wir rote und schwarze Standardformen (Kreise, Dreiecke, Polygone) kombiniert, sodass die Blackjack Symbole entstehen. Dabei teilen sich alle Karten denselben Entwurf mit der Nummer und dem Symbol oben links und unten rechts. Das mittlere Bild stellt die Nummer mit der entsprechenden Anzahl an Symbolen in Form von zwei Reihen dar. Wenn die Nummer n ungerade ist, dann hat die erste Reihe (n - 1)/2 an Symbolen und die zweite (n + 1)/2. Die Spezialkarten sind aus dem Internet übernommen.
+        </p>
+        <img src="images/Symbols.png">
+        <p>
+            Außerdem stehen mehrere Chips in unterschiedlichen Farbvariationen und Werten zur Auswahl. Sie haben ein Radius von 41 und haben initiale Koordinaten von x = 5 und y = 80 und werden voneinander mit Schrittgröße 10 getrennt. Ob man auf einen Chip klicken kann, um dessen Betrag zu setzen, hängt von der restlichen balance des Spielers ab. Dabei werden nur Chips als aktiv gezeichnet deren Betrag kleiner/gleich der restlichen balance sind.
+        </p>
+        <img src="images/Chip.png">
+        <p>
+            Die Knöpfe werden für unterschiedliche Spieleraktionen z.B. Hit, Stand, Double, newRound oder dem Austreten des Spiels verwendet. Abhängig von der Phase sind diese aktiviert (drawing phase) oder deaktiviert ( betting phase oder finished phase). Die Knöpfe haben auch wie Chips initiale Koordinaten von x = 5 und y = 80, sind aber auf Ordinate um 13 nach unten verschoben und haben dort eine Schrittgröße von 10. Der GoToLobby Knopf ist immer aktiv, sodass man immer die Möglichkeit hat den Tisch zu verlassen. Dabei kann man allerdings seinen laufenden Einsatz verlieren. Dahingegen erscheint der NewRound Knopf nur dann, wenn eine Runde beendet wurde und die Gewinne ausgezahlt wurden.</p>
+        <img src="images/Button.png">
+
+
+        <h2>Architektur</h2>
+        <h3>Model View Controller</h3>
+        <p>
+            Der Kern unserer Blackjack-Anwendung ist die Model-Komponente im Model View Controller (MVC) Architekturstil.
+        </p>
+        <img src="images/MVC.png">
+
+
+        <img src="images/DTD.png">
+
+
+        <h2>Implementierung</h2>
+        <h3>Datenspeicherung</h3>
+        <p>
+            Unsere XML-Datei befinden sich auf einem BaseX Server, welcher eine Datenbank bereitstellt, die sich perfekt für Webapplikationen eignet. Die Daten der Datenbank können mithilfe von XQuery Abfragen verändert werden.
+        </p>
+        <h3>Client-Server Kommunikation</h3>
+        <p>
+            Unsere Daten werden von einem BaseX Stomp Server verwaltet, weil diese Daten im XML Format gespeichert sind. Für die Abfragen der XML-Datenbank und Ausführung der Spielzüge verwenden wir XQuery. Jedoch können wir die Funktionen nicht direkt vom Spieler aufrufen lassen. Das wird erst durch die Client-Server Kommunikation unter Verwendung von RESTXQ Annotationen ermöglicht. Diese werden mittels der dazugehörigen XQuery Funktion ausgeführt, wenn die annotierte URL vom Spieler aufgerufen wird.
+        </p>
+        <h3>Websocket</h3>
+        <p>
+            Um die Kommunikation zwischen Client und Server ohne vorherige Benachrichtigung zu ermöglichen nutzten wir das HTTP Erweiterungsprotokoll Websocket. Der Websocket erlaubt diese bidirektionale Kommunikation ohne Client Request. Websockets benötigen zumindest eine ID, URL und Subscription. Wir setzten dies um, indem jeden Spieler der sich registiert/einloggt automatisch eine Websocket zugewiesen wird. Die ID des Websockets ist einzigartig, die URL zeigt zu unser Funktion zur Erzeugung des initialen Lobby Screen und die Subscription wird auf den Spielernamen unter dem sich der Spieler eingeloggt hat geführt. Dies setzen wir mit der Redirect Methode um die im Infoblatt erwähnt wurde.
+        </p>
+        <h3>Update Constraint XQuery</h3>
+        <p>
+            XQuery erlaubt es uns XML Daten abzufragen und zurückzugeben. Aber es ist nicht direkt möglich Daten zu manipulieren. Zudem ist es standardmäßig nicht erlaubt, verschiedene Arten von Ausdrücken wie %updating und nicht %updating Funktionen in einem Abfrageergebnis zu mischen. Die Lösung hierfür stellt die XQuery Update Facility bereit. Die Update Facility liefert insert, delete und replace node Kommandos, diese machen es uns möglich bei Spielzügen Spielerdaten zu verändern. Diese Updates werden in einer Pending Update List geführt und unabhängig von der Reihenfolge der Kommandos parallel ausgeführt. Um eine sinnvolle Funktionalität für unser Spiel bereitzustellen haben wir uns nun entschieden diese Problematik durch das Nutzen von web:redirects zu umgehen. Bei update:output werden die gelieferten Inhalte zwischengespeichert und ganz am Ende zurückgegeben, d.h. nachdem alle Aktualisierungen in der Pending Update List verarbeitet wurden. Wenn eines der gelieferten Elemente von einer Aktualisierung betroffen ist, wird stattdessen eine Kopie erstellt und zwischengespeichert. Deshalb konnten wir die update:output Funktionalität nutzen, um auch in %updating Funktionen und andere nicht %updating Funktionen aufzurufen.
+        </p>
+
+        <h2>Ergebnis</h2>
+        <img src="images/Login.png">
+        <img src="images/Lobby.png">
+        <img src="images/Beispieltisch.png">
+        <img src="images/High-Score-Liste.png">
+
+        <h2>Installation</h2>
+        <p>Um das Spiel spielen zu können wird eine Instanz der BaseX STOMP-Datenbank (https://github.com/BaseXdb/basex/tree/stomp) und des basexhttp-Servers benötigt.
+            Zusätzlich wird für die Installation ebenfalls eine aktuelle Maven Version benötigt. </p>
+
+        <p>Für die Installation des Spieles muss der Ordner webapp in den BaseX-Basisordner kopiert werden für das anschließende Setup existieren zwei Möglichkeiten:</p>
+
+        <p>
+        <h4>Installation mit der BaseX-GUI:</h4>
+        <ul>
+            <li>Öffne die BaseX-GUI und erstelle eine neue Datenbank, indem folgende Schritte ausführen werden:
+                Datenbank</li>
+            <li>Neu...</li>
+            <li>Auswahl der Eingabedatei oder Verzeichnis: [BaseX-Basisordner]/webapp/xqBlackjack/</li>
+            <li>Name der Datenbank: xqBlackjack</li>
+            <li>"Ok"</li>
+            <h4>Installation mit Setup-Methode:</h4>
+            Die Alternative ist die Installation mithilfe der Setup-Methode, womit das System vom Browser aus installiert werden kann. Dafür wird die folgende URL aufgerufen: http://localhost:8984/xqBlackjack/setup
+            </li>
+        </ul>
+        </p>
+
+
+
+
+
+
+
+
+
+
+
+
+        <img src="images/Apache_Maven_logo.svg.png">
+        <img src="images/basex-logo_1-1-30.png">
+
+
+
+    </article>
+</section>
+
+<footer>
+    <ul>
+        <li>&copy; Fabian Nhan</li>
+        <li><a href="AGB.html">AGB</a></li>
+        <li><a href="Datenschutz.html">Datenschutz</a></li>
+        <li><a href="Impressum.html">Impressum</a></li>
+    </ul>
+</footer>
+</body>
+</html>
