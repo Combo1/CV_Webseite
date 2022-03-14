@@ -99,10 +99,10 @@
             XQuery erlaubt es uns XML Daten abzufragen und zurückzugeben. Aber es ist nicht direkt möglich Daten zu manipulieren. Zudem ist es standardmäßig nicht erlaubt, verschiedene Arten von Ausdrücken wie %updating und nicht %updating Funktionen in einem Abfrageergebnis zu mischen. Die Lösung hierfür stellt die XQuery Update Facility bereit. Die Update Facility liefert insert, delete und replace node Kommandos, diese machen es uns möglich bei Spielzügen Spielerdaten zu verändern. Diese Updates werden in einer Pending Update List geführt und unabhängig von der Reihenfolge der Kommandos parallel ausgeführt. Um eine sinnvolle Funktionalität für unser Spiel bereitzustellen haben wir uns nun entschieden diese Problematik durch das Nutzen von web:redirects zu umgehen. Bei update:output werden die gelieferten Inhalte zwischengespeichert und ganz am Ende zurückgegeben, d.h. nachdem alle Aktualisierungen in der Pending Update List verarbeitet wurden. Wenn eines der gelieferten Elemente von einer Aktualisierung betroffen ist, wird stattdessen eine Kopie erstellt und zwischengespeichert. Deshalb konnten wir die update:output Funktionalität nutzen, um auch in %updating Funktionen und andere nicht %updating Funktionen aufzurufen.
         </p>
 
-        <h2>Ergebnis</h2>
+        <h2>Das Ergebnis</h2>
         <img src="images/Login.png">
         <img src="images/Lobby.png">
-        <img src="images/Beispieltisch.png">
+        <img src="images/BeispielTisch.png">
         <img src="images/High-Score-Liste.png">
 
         <h2>Installation</h2>

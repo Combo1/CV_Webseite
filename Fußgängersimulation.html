@@ -52,7 +52,44 @@
         <section id="main">
 
             <article>
-                <h2>Fußgängersimulationen als komplexe Systeme</h2>
+                <h2>Fußgängersimulation</h2>
+                <p>
+                    Bei dieser Simulation handelt es sich um eine Umsetzung durch die Software Vadere eine Software zur Simulation
+                    von MUCXX zur Untersuchung der Dynamik von Menschenmassen (https://www.vadere.org/). Teil meiner Aufgabe war es
+                    bestimmte Teile zur Umsetzung der Szenarien zu implementieren und schlussendlich die Szenarien aufzubauen.
+                </p>
+                <figure>
+                    <img src="images/T2.2_before.png">
+                    <figcaption>Simulation kurz nach Start</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/T2.4_before.png">
+                    <figcaption>Simulation zur Halbzeit</figcaption>
+                </figure>
+                <h2>Virusausbreitungssimulation</h2>
+                <p>
+                    Für diese Simulation setzen wir die Gesamtzahl der Fußgänger auf 1000, indem wir spawnNumber = 1000 setzen. These
+                    Fußgänger werden zufällig generiert, indem spawnAtRandomPositions = true und useFreeSpaceOnly gesetzt werden
+                    = falsch. Um mit 10 infektiösen Fußgängern zu beginnen, setzen wir infectionAtStart = 10. Wir setzen infectionRate
+                    = 0,01 und Erholungsrate = 0,01. Während der Visualisierung des Szenarios sehen wir, dass der Zustand anfällig ist
+                    Fußgänger in Blau werden zu Infizierten (Rot) und schließlich zu Genesenen (Grün). Als Wiederfindungsrate und
+                    Infektionsrate gleich sind, sehen wir keinen Zustand der Bevölkerung, der vollständig infiziert ist, was auch abgeleitet
+                    werden kann aus dem Diagramm in Abbildung 19. Wir können aus dem Diagramm auch den Zeitpunkt erkennen, an dem die
+                    Hälfte der Bevölkerung infiziert ist und die andere Hälfte genesen ist.
+                </p>
+                <figure>
+                    <img src="images/T5.2HI_LR.png">
+                    <figcaption>Simulation kurz nach Start</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/T5.2LI_HR_mid.png">
+                    <figcaption>Simulation zur Halbzeit</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/T5.2LI_HR_end.png">
+                    <figcaption>Simulation am Ende</figcaption>
+                </figure>
+                <h2>Kompression der komplexen Dynamiken von Fußgängern durch den Koopman Operator</h2>
                 <p>
                     Der Koopman Operator ist eine Lösung zur Untersuchung der Dynamiken von Messwerten im Zustandsraum von dynamischen
                     Systemen. Mit dem Koopman Ansatz können wir die darunterliegenden Dynamiken von Systemen, durch das Betrachten der
